@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <style>
+        body {
+            background: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
+        }
+        #loginForm {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px solid red;
+            border-radius: 4px;
+            padding: 20px;
+            background-color: black;
+        }
+        #loginForm label,
+        #loginForm input {
+            font-family: Arial;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h2>KHOAWEBS_TRANG ĐĂNG NHẬP BẢN ADMIN</h2>
+    <form id="loginForm">
+        <label for="username">TÀI KHOẢN:</label>
+        <input type="text" id="username" name="username"><br><br>
+        <label for="password">MẬT KHẨU:</label>
+        <input type="password" id="password" name="password"><br><br>
+        <label for="showPassword">HIỆN MẬT KHẨU:</label>
+        <input type="checkbox" id="showPassword"><br><br>
+        <input type="submit" value="ĐĂNG NHẬP">
+    </form> 
+    <script>
+        let attempt = 3;
+        document.getElementById("loginForm").onsubmit = function(event) {
+            event.preventDefault();
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+            if ( username == "0867544809","0825864379","22062002","061198","Minhkhoa","123" && password == "12345678") {
+                alert ("Login successfully");
+                window.location = "https://sites.google.com/view/khoawebs";
+                return false;
+            }
+            else {
+                attempt --;
+                alert("You have left "+attempt+" attempt;");
+                if( attempt == 0) {
+                    document.getElementById("username").disabled = true;
+                    document.getElementById("password").disabled = true;
+                    document.getElementById("submit").disabled = true;
+                    return false;
+                }
+            }
+        }
+        
+        document.getElementById("showPassword").onchange = function() {
+            let passwordField = document.getElementById("password");
+            if (this.checked) {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        }
+    </script>
+</body>
+</html> 
